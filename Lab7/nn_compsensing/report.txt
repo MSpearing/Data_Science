@@ -1,0 +1,312 @@
+================================================================================
+Input tree: 'src/'
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'src/celebA_estimators.py'
+ outputting to 'tfupgraded_src/celebA_estimators.py'
+--------------------------------------------------------------------------------
+
+'src/celebA_estimators.py' Line 74
+--------------------------------------------------------------------------------
+
+Renamed function 'tf.all_variables' to 'tf.global_variables'
+
+    Old:     restore_dict = {var.op.name: var for var in tf.all_variables() if var.op.name in restore_vars}
+                                                         ~~~~~~~~~~~~~~~~                                   
+    New:     restore_dict = {var.op.name: var for var in tf.global_variables() if var.op.name in restore_vars}
+                                                         ~~~~~~~~~~~~~~~~~~~                                   
+
+'src/celebA_estimators.py' Line 195
+--------------------------------------------------------------------------------
+
+Renamed function 'tf.all_variables' to 'tf.global_variables'
+
+    Old:     restore_dict = {var.op.name: var for var in tf.all_variables() if var.op.name in restore_vars}
+                                                         ~~~~~~~~~~~~~~~~                                   
+    New:     restore_dict = {var.op.name: var for var in tf.global_variables() if var.op.name in restore_vars}
+                                                         ~~~~~~~~~~~~~~~~~~~                                   
+
+'src/celebA_estimators.py' Line 228
+--------------------------------------------------------------------------------
+
+Renamed function 'tf.initialize_all_variables' to 'tf.global_variables_initializer'
+
+    Old:     init_op = tf.initialize_all_variables()
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+    New:     init_op = tf.global_variables_initializer()
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+
+'src/celebA_estimators.py' Line 109
+--------------------------------------------------------------------------------
+
+Renamed function 'tf.initialize_all_variables' to 'tf.global_variables_initializer'
+
+    Old:     init_op = tf.initialize_all_variables()
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+    New:     init_op = tf.global_variables_initializer()
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/celebA_input.py'
+ outputting to 'tfupgraded_src/celebA_input.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/celebA_utils.py'
+ outputting to 'tfupgraded_src/celebA_utils.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/compressed_sensing.py'
+ outputting to 'tfupgraded_src/compressed_sensing.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/create_scripts.py'
+ outputting to 'tfupgraded_src/create_scripts.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/DCGAN_compressed_sensing.py'
+ outputting to 'tfupgraded_src/DCGAN_compressed_sensing.py'
+--------------------------------------------------------------------------------
+
+Failed to parse 'src/DCGAN_compressed_sensing.py'
+
+Traceback (most recent call last):
+  File "tf_upgrade.py", line 552, in process_opened_file
+    parsed_ast = ast.parse("".join(lines))
+  File "/Users/adimold/anaconda2/lib/python2.7/ast.py", line 37, in parse
+    return compile(source, filename, mode, PyCF_ONLY_AST)
+  File "<unknown>", line 101
+    m=FLAG.m
+    ^
+IndentationError: unexpected indent
+
+--------------------------------------------------------------------------------
+Processing file 'src/dcgan_model.py'
+ outputting to 'tfupgraded_src/dcgan_model.py'
+--------------------------------------------------------------------------------
+
+'src/dcgan_model.py' Line 354
+--------------------------------------------------------------------------------
+
+Added keyword 'concat_dim' to reordered function 'tf.concat'
+Added keyword 'values' to reordered function 'tf.concat'
+
+    Old:             z = tf.concat(1, [z, y])
+                                              
+    New:             z = tf.concat(axis=1, values=[z, y])
+                                   ~~~~~   ~~~~~~~        
+
+'src/dcgan_model.py' Line 357
+--------------------------------------------------------------------------------
+
+Added keyword 'concat_dim' to reordered function 'tf.concat'
+Added keyword 'values' to reordered function 'tf.concat'
+
+    Old:             h0 = tf.concat(1, [h0, y])
+                                                
+    New:             h0 = tf.concat(axis=1, values=[h0, y])
+                                    ~~~~~   ~~~~~~~         
+
+'src/dcgan_model.py' Line 102
+--------------------------------------------------------------------------------
+
+Added keyword 'logits' to reordered function 'tf.nn.sigmoid_cross_entropy_with_logits'
+Added keyword 'labels' to reordered function 'tf.nn.sigmoid_cross_entropy_with_logits'
+
+    Old:         self.d_loss_real = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(self.D_logits, tf.ones_like(self.D)))
+                                                                                                                                 
+    New:         self.d_loss_real = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=self.D_logits, labels=tf.ones_like(self.D)))
+                                                                                           ~~~~~~~               ~~~~~~~                       
+
+'src/dcgan_model.py' Line 103
+--------------------------------------------------------------------------------
+
+Added keyword 'logits' to reordered function 'tf.nn.sigmoid_cross_entropy_with_logits'
+Added keyword 'labels' to reordered function 'tf.nn.sigmoid_cross_entropy_with_logits'
+
+    Old:         self.d_loss_fake = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(self.D_logits_, tf.zeros_like(self.D_)))
+                                                                                                                                    
+    New:         self.d_loss_fake = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=self.D_logits_, labels=tf.zeros_like(self.D_)))
+                                                                                           ~~~~~~~                ~~~~~~~                         
+
+'src/dcgan_model.py' Line 104
+--------------------------------------------------------------------------------
+
+Added keyword 'logits' to reordered function 'tf.nn.sigmoid_cross_entropy_with_logits'
+Added keyword 'labels' to reordered function 'tf.nn.sigmoid_cross_entropy_with_logits'
+
+    Old:         self.g_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(self.D_logits_, tf.ones_like(self.D_)))
+                                                                                                                              
+    New:         self.g_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=self.D_logits_, labels=tf.ones_like(self.D_)))
+                                                                                      ~~~~~~~                ~~~~~~~                        
+
+'src/dcgan_model.py' Line 266
+--------------------------------------------------------------------------------
+
+Added keyword 'concat_dim' to reordered function 'tf.concat'
+Added keyword 'values' to reordered function 'tf.concat'
+
+    Old:             h1 = tf.concat(1, [h1, y])
+                                                
+    New:             h1 = tf.concat(axis=1, values=[h1, y])
+                                    ~~~~~   ~~~~~~~         
+
+'src/dcgan_model.py' Line 269
+--------------------------------------------------------------------------------
+
+Added keyword 'concat_dim' to reordered function 'tf.concat'
+Added keyword 'values' to reordered function 'tf.concat'
+
+    Old:             h2 = tf.concat(1, [h2, y])
+                                                
+    New:             h2 = tf.concat(axis=1, values=[h2, y])
+                                    ~~~~~   ~~~~~~~         
+
+'src/dcgan_model.py' Line 308
+--------------------------------------------------------------------------------
+
+Added keyword 'concat_dim' to reordered function 'tf.concat'
+Added keyword 'values' to reordered function 'tf.concat'
+
+    Old:             z = tf.concat(1, [z, y])
+                                              
+    New:             z = tf.concat(axis=1, values=[z, y])
+                                   ~~~~~   ~~~~~~~        
+
+'src/dcgan_model.py' Line 311
+--------------------------------------------------------------------------------
+
+Added keyword 'concat_dim' to reordered function 'tf.concat'
+Added keyword 'values' to reordered function 'tf.concat'
+
+    Old:             h0 = tf.concat(1, [h0, y])
+                                                
+    New:             h0 = tf.concat(axis=1, values=[h0, y])
+                                    ~~~~~   ~~~~~~~         
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/dcgan_ops.py'
+ outputting to 'tfupgraded_src/dcgan_ops.py'
+--------------------------------------------------------------------------------
+
+'src/dcgan_ops.py' Line 49
+--------------------------------------------------------------------------------
+
+Added keyword 'concat_dim' to reordered function 'tf.concat'
+Added keyword 'values' to reordered function 'tf.concat'
+
+    Old:     return tf.concat(3, [x, y*tf.ones([x_shapes[0], x_shapes[1], x_shapes[2], y_shapes[3]])])
+                                                                                                       
+    New:     return tf.concat(axis=3, values=[x, y*tf.ones([x_shapes[0], x_shapes[1], x_shapes[2], y_shapes[3]])])
+                              ~~~~~   ~~~~~~~                                                                      
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/dcgan_utils.py'
+ outputting to 'tfupgraded_src/dcgan_utils.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/mnist_estimators.py'
+ outputting to 'tfupgraded_src/mnist_estimators.py'
+--------------------------------------------------------------------------------
+
+'src/mnist_estimators.py' Line 62
+--------------------------------------------------------------------------------
+
+Renamed function 'tf.initialize_all_variables' to 'tf.global_variables_initializer'
+
+    Old:     init_op = tf.initialize_all_variables()
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+    New:     init_op = tf.global_variables_initializer()
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/mnist_input.py'
+ outputting to 'tfupgraded_src/mnist_input.py'
+--------------------------------------------------------------------------------
+
+'src/mnist_input.py' Line 29
+--------------------------------------------------------------------------------
+
+Renamed function 'tf.initialize_all_variables' to 'tf.global_variables_initializer'
+
+    Old:     init_op = tf.initialize_all_variables()
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+    New:     init_op = tf.global_variables_initializer()
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/mnist_model_def.py'
+ outputting to 'tfupgraded_src/mnist_model_def.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/mnist_utils.py'
+ outputting to 'tfupgraded_src/mnist_utils.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/mnist_vae_train.py'
+ outputting to 'tfupgraded_src/mnist_vae_train.py'
+--------------------------------------------------------------------------------
+
+'src/mnist_vae_train.py' Line 91
+--------------------------------------------------------------------------------
+
+Renamed function 'tf.mul' to 'tf.multiply'
+
+    Old: 						tf.mul(tf.sqrt(tf.exp(self.z_log_sigma_sq)), eps))
+               ~~~~~~                                             
+    New: 						tf.multiply(tf.sqrt(tf.exp(self.z_log_sigma_sq)), eps))
+               ~~~~~~~~~~~                                             
+
+'src/mnist_vae_train.py' Line 69
+--------------------------------------------------------------------------------
+
+Renamed function 'tf.initialize_all_variables' to 'tf.global_variables_initializer'
+
+    Old:         init = tf.initialize_all_variables()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+    New:         init = tf.global_variables_initializer()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/test1.py'
+ outputting to 'tfupgraded_src/test1.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/tf_upgrade.py'
+ outputting to 'tfupgraded_src/tf_upgrade.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/tf_upgrade_test.py'
+ outputting to 'tfupgraded_src/tf_upgrade_test.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+Processing file 'src/utils.py'
+ outputting to 'tfupgraded_src/utils.py'
+--------------------------------------------------------------------------------
+
+

@@ -1,0 +1,16 @@
+python compressed_sensing.py \
+    --dataset=mnist \
+    --input-type=random-test \
+    --num-input-images=3 \
+    --model-types vae-gen lasso omp \
+    --num-measurements=400 \
+    --noise-std=0.1 \
+    --optimizer-type=momentum \
+    --learning-rate=0.01 \
+    --momentum=0.9 \
+    --max-update-iter=100 \
+    --num-random-restarts=10 \
+    --lmbd 0.1 \
+    --omp-k=80 \
+    --print-stats \
+    --image-matrix=1
